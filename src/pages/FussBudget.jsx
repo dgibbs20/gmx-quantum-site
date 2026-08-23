@@ -51,7 +51,7 @@ export default function FussBudget() {
             <span className="text-eyebrow !text-[11px] !text-ivory-dim">{data.category}</span>
           </div>
 
-          <img src={fussBudgetLogo} alt="Fuss Budget" className="mt-8 h-24 w-auto sm:h-28" />
+          <img src={fussBudgetLogo} alt="Fuss Budget" className="mt-8 h-36 w-auto sm:h-44" />
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ivory-dim">
             "Calm about money. Confident about life." An AI financial

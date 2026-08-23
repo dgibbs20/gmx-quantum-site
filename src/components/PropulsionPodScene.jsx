@@ -65,7 +65,8 @@ export default function PropulsionPodScene({ className = "" }) {
     scene.add(podGroup);
 
     const podGeo = buildPodGeometry();
-    podGeo.rotateZ(Math.PI / 2); // lathe axis (Y) -> horizontal (X); nose at x=0, tail at x=-4.48
+    podGeo.rotateZ(Math.PI / 2); // lathe axis (Y) -> horizontal (X)
+    podGeo.translate(2.24, 0, 0); // center the body at local origin — this IS the rotation pivot
 
     const bodyMat = new THREE.MeshStandardMaterial({
       color: 0xc9a44c,
@@ -76,14 +77,15 @@ export default function PropulsionPodScene({ className = "" }) {
     podGroup.add(body);
 
     // purely decorative panel-seam rings — surface detail only, no
-    // internal components implied. Positions are negative to match the
-    // nose-at-0/tail-at-negative-x convention set by the rotateZ above.
+    // internal components implied. Positions shifted by the same +2.24
+    // used to center the body, so everything shares one pivot at the
+    // group's local origin (the geometric center, not the nose).
     const seamMat = new THREE.MeshStandardMaterial({
       color: 0x1c1710,
       metalness: 0.5,
       roughness: 0.6,
     });
-    [-1.05, -1.85, -2.7, -3.55].forEach((x) => {
+    [1.19, 0.39, -0.46, -1.31].forEach((x) => {
       const ring = new THREE.Mesh(
         new THREE.TorusGeometry(0.885, 0.012, 8, 60),
         seamMat
@@ -99,11 +101,13 @@ export default function PropulsionPodScene({ className = "" }) {
       new THREE.MeshStandardMaterial({ color: 0x2a3a5c, metalness: 0.6, roughness: 0.4 })
     );
     band.rotation.y = Math.PI / 2;
-    band.position.x = -4.1;
+    band.position.x = -1.86;
     podGroup.add(band);
 
-    // center the whole assembly (body spans x: -4.48 to 0) at the origin
-    podGroup.position.x = 2.24;
+    // podGroup itself stays at the scene origin — the geometry-level
+    // translate above already centered every mesh, so rotation.y now
+    // pivots around the pod's own middle instead of sweeping it through
+    // a wide arc off-screen.
 
     function resize() {
       const { clientWidth, clientHeight } = mount;
