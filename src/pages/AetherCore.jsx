@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, FileCheck2, Rocket, Scale } from "lucide-react";
-import ProductHero from "../components/ProductHero";
+import StatusBadge from "../components/StatusBadge";
 import Button from "../components/Button";
+import PropulsionPodScene from "../components/PropulsionPodScene";
 import { systems } from "../data/systems";
 
 const data = systems.find((s) => s.name === "AetherCore");
@@ -27,20 +28,57 @@ const facts = [
 export default function AetherCore() {
   return (
     <>
-      <ProductHero
-        code={data.code}
-        category={data.category}
-        name={data.name}
-        tagline="A patent-granted multi-propulsion jet engine architecture — GMX Quantum's entry into aerospace hardware."
-        status={data.status}
-        stats={data.stats}
-      />
+      {/* Hero — asymmetric, 3D propulsion pod render right */}
+      <section className="relative overflow-hidden border-b border-line-gold">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 sm:py-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
+          <div>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="font-display text-sm italic text-gold">{data.code}</span>
+              <span className="text-ivory-dim/40">/</span>
+              <span className="text-eyebrow !text-[11px] !text-ivory-dim">{data.category}</span>
+            </div>
+
+            <h1 className="mt-6 max-w-lg font-display text-5xl font-normal leading-[1.08] tracking-tight text-ivory sm:text-6xl">
+              AetherCore
+            </h1>
+
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ivory-dim">
+              A patent-granted multi-propulsion jet engine architecture —
+              GMX Quantum's entry into aerospace hardware.
+            </p>
+
+            <div className="mt-8">
+              <StatusBadge status={data.status} size="lg" />
+            </div>
+
+            <dl className="mt-14 grid grid-cols-3 gap-6 border-t border-line-gold pt-8">
+              {data.stats.map((stat) => (
+                <div key={stat.label}>
+                  <dt className="text-eyebrow !text-[10px] !text-ivory-dim">{stat.label}</dt>
+                  <dd className="mt-2 font-display text-xl text-ivory">{stat.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="relative hidden items-center justify-center lg:flex">
+            <PropulsionPodScene className="h-[420px] w-full max-w-lg" />
+          </div>
+        </div>
+      </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20">
         <p className="text-eyebrow">Overview</p>
         <h2 className="mt-3 max-w-2xl font-display text-3xl font-normal text-ivory">
           Hardware held to the same bar as the software.
         </h2>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ivory-dim">
+          AetherCore is built around a specific idea: most of what slows a
+          flight down is the atmosphere itself. The architecture is
+          designed to carry an aircraft above it, then bring it back down
+          — internal modeling targets cutting long-haul flight time by
+          roughly 70%, pending real-world validation.
+        </p>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ivory-dim">
           AetherCore is GMX Quantum's propulsion program: a multi-propulsion
           jet engine architecture, protected by an issued U.S. patent. Full
@@ -79,3 +117,4 @@ export default function AetherCore() {
     </>
   );
 }
+
