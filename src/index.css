@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #080b14;
+  --color-navy-raised: #0e1320;
+  --color-line: #ffffff1f;
+  --color-line-gold: #c9a44c29;
+  --color-line-gold-bright: #c9a44c52;
+  --color-ivory: #efe9dc;
+  --color-ivory-dim: #8d93a3;
+  --color-gold: #c9a44c;
+  --color-gold-bright: #e7c37e;
+  --color-gold-deep: #93752f;
+  --color-mint: #7fd9ac;
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", "Helvetica Neue", sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-navy);
+    background-image:
+      radial-gradient(1100px 620px at 88% -10%, color-mix(in srgb, var(--color-gold) 11%, transparent), transparent 60%),
+      radial-gradient(800px 520px at -10% 15%, color-mix(in srgb, var(--color-gold) 6%, transparent), transparent 60%);
+    background-repeat: no-repeat;
+    color: var(--color-ivory);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-bright);
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-navy);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line-gold);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-line-gold-bright);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.grain-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.grain-layer svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+.grain-layer .vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 20%, transparent 45%, rgba(0,0,0,0.45) 100%);
+}
+
+@utility text-eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+@utility gold-text {
+  background-image: linear-gradient(180deg, #f2d99b 0%, #c9a44c 50%, #93752f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glass-nav {
+  background-color: color-mix(in srgb, var(--color-navy) 70%, transparent);
+  backdrop-filter: blur(14px);
+}
