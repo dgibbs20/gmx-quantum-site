@@ -39,11 +39,11 @@ export default function Contact() {
             <div className="mt-8 border-t border-line-gold pt-6">
               <p className="text-eyebrow !text-[10px] !text-ivory-dim">Media &amp; Social</p>
               <a
-                href="mailto:alphonso@gmxquantum.com"
+                href="mailto:alphonso@gibbsmcglaston.com"
                 className="mt-3 flex items-center gap-3 text-sm text-ivory hover:text-gold"
               >
                 <Mail size={16} className="text-gold" />
-                alphonso@gmxquantum.com
+                alphonso@gibbsmcglaston.com
               </a>
               <p className="mt-2 max-w-sm text-sm leading-relaxed text-ivory-dim">
                 For brand assets, social collaborations, or media requests.
