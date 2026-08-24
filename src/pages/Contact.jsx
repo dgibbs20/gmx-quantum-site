@@ -37,7 +37,7 @@ export default function Contact() {
             </p>
 
             <div className="mt-8 border-t border-line-gold pt-6">
-              <p className="text-eyebrow !text-[10px] !text-ivory-dim">Media &amp; Social</p>
+              <p className="text-eyebrow !text-[10px] !text-ivory-dim">Media, Social &amp; Public Relations</p>
               <a
                 href="mailto:alphonso@gibbsmcglaston.com"
                 className="mt-3 flex items-center gap-3 text-sm text-ivory hover:text-gold"
@@ -46,7 +46,7 @@ export default function Contact() {
                 alphonso@gibbsmcglaston.com
               </a>
               <p className="mt-2 max-w-sm text-sm leading-relaxed text-ivory-dim">
-                For brand assets, social collaborations, or media requests.
+                For brand assets, social collaborations, media, or public relations requests.
               </p>
             </div>
           </div>
