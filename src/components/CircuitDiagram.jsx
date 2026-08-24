@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import AtomMark from "./AtomMark";
 
 const primary = [
-  { label: "diAry", to: "/diary", top: 150 },
-  { label: "Fuss Budget", to: "/fuss-budget", top: 320 },
-  { label: "AetherCore", to: "/aethercore", top: 490 },
+  { label: "diAry", to: "/diary", top: 130 },
+  { label: "Fuss Budget", to: "/fuss-budget", top: 250 },
+  { label: "AetherCore", to: "/aethercore", top: 370 },
+  { label: "Aitherium", to: "/aitherium", top: 490 },
 ];
 
 const secondary = [
-  { label: "Founder", to: "/founder", top: 90 },
+  { label: "Founder", to: "/founder", top: 70 },
   { label: "Contact", to: "/contact", top: 550 },
 ];
 
@@ -30,19 +31,21 @@ export default function CircuitDiagram() {
           <circle cx="660" cy="560" r="2.5" fill="#ffffff1f" />
         </g>
 
-        <path d="M158 235 L230 235 L230 150 L480 150" stroke="url(#wireGrad)" strokeWidth="1.5" />
-        <path d="M158 285 L260 285 L260 320 L480 320" stroke="url(#wireGrad)" strokeWidth="1.5" />
-        <path d="M158 335 L230 335 L230 490 L480 490" stroke="url(#wireGrad)" strokeWidth="1.5" />
+        <path d="M158 235 L220 235 L220 130 L480 130" stroke="url(#wireGrad)" strokeWidth="1.5" />
+        <path d="M158 278 L245 278 L245 250 L480 250" stroke="url(#wireGrad)" strokeWidth="1.5" />
+        <path d="M158 322 L245 322 L245 370 L480 370" stroke="url(#wireGrad)" strokeWidth="1.5" />
+        <path d="M158 365 L220 365 L220 490 L480 490" stroke="url(#wireGrad)" strokeWidth="1.5" />
 
-        <path d="M158 205 L190 205 L190 90 L440 90" stroke="#c9a44c59" strokeWidth="1" />
-        <path d="M158 365 L190 365 L190 550 L440 550" stroke="#c9a44c59" strokeWidth="1" />
+        <path d="M158 205 L190 205 L190 70 L440 70" stroke="#c9a44c59" strokeWidth="1" />
+        <path d="M158 395 L190 395 L190 550 L440 550" stroke="#c9a44c59" strokeWidth="1" />
 
         <g fill="var(--color-gold)">
           <circle cx="158" cy="235" r="3" />
-          <circle cx="158" cy="285" r="3" />
-          <circle cx="158" cy="335" r="3" />
+          <circle cx="158" cy="278" r="3" />
+          <circle cx="158" cy="322" r="3" />
+          <circle cx="158" cy="365" r="3" />
           <circle cx="158" cy="205" r="2" opacity="0.6" />
-          <circle cx="158" cy="365" r="2" opacity="0.6" />
+          <circle cx="158" cy="395" r="2" opacity="0.6" />
         </g>
       </svg>
 
