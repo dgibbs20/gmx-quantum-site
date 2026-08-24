@@ -60,10 +60,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:hello@gmxquantum.com"
+                  href="mailto:admin@gmxquantum.com"
                   className="text-sm text-ivory-dim hover:text-gold"
                 >
-                  hello@gmxquantum.com
+                  admin@gmxquantum.com
                 </a>
               </li>
             </ul>

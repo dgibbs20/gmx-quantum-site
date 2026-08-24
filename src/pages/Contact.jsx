@@ -24,17 +24,31 @@ export default function Contact() {
         <div className="mt-16 grid gap-16 lg:grid-cols-[1fr_1.3fr]">
           <div>
             <a
-              href="mailto:hello@gmxquantum.com"
+              href="mailto:admin@gmxquantum.com"
               className="flex items-center gap-3 font-display text-lg text-ivory hover:text-gold"
             >
               <Mail size={20} className="text-gold" />
-              hello@gmxquantum.com
+              admin@gmxquantum.com
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ivory-dim">
               For product press, partnership, B2B licensing, or investment
               inquiries, email directly or use the form — either reaches the
               same inbox.
             </p>
+
+            <div className="mt-8 border-t border-line-gold pt-6">
+              <p className="text-eyebrow !text-[10px] !text-ivory-dim">Media &amp; Social</p>
+              <a
+                href="mailto:alphonso@gmxquantum.com"
+                className="mt-3 flex items-center gap-3 text-sm text-ivory hover:text-gold"
+              >
+                <Mail size={16} className="text-gold" />
+                alphonso@gmxquantum.com
+              </a>
+              <p className="mt-2 max-w-sm text-sm leading-relaxed text-ivory-dim">
+                For brand assets, social collaborations, or media requests.
+              </p>
+            </div>
           </div>
 
           <div className="border border-line-gold bg-navy-raised p-8">
