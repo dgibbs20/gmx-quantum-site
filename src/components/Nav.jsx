@@ -8,6 +8,7 @@ const links = [
   { to: "/diary", label: "diAry" },
   { to: "/fuss-budget", label: "Fuss Budget" },
   { to: "/aethercore", label: "AetherCore" },
+  { to: "/aitherium", label: "Aitherium" },
   { to: "/company", label: "Company" },
   { to: "/founder", label: "Founder" },
 ];

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Diary from "./pages/Diary";
 import FussBudget from "./pages/FussBudget";
 import AetherCore from "./pages/AetherCore";
+import Aitherium from "./pages/Aitherium";
 import Company from "./pages/Company";
 import Founder from "./pages/Founder";
 import Contact from "./pages/Contact";
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/diary" element={<Diary />} />
             <Route path="/fuss-budget" element={<FussBudget />} />
             <Route path="/aethercore" element={<AetherCore />} />
+            <Route path="/aitherium" element={<Aitherium />} />
             <Route path="/company" element={<Company />} />
             <Route path="/founder" element={<Founder />} />
             <Route path="/contact" element={<Contact />} />

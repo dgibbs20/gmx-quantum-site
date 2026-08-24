@@ -44,8 +44,12 @@ export const systems = [
     category: "Proprietary Research",
     tagline: "Internal AI research program. Not publicly disclosed.",
     status: "INTERNAL",
-    route: null,
-    stats: [],
+    route: "/aitherium",
+    stats: [
+      { label: "Structure", value: "Unified Core" },
+      { label: "Domains", value: "4" },
+      { label: "Access", value: "Internal Only" },
+    ],
   },
 ];
 
