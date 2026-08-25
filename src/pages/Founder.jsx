@@ -1,4 +1,4 @@
-import AtomMark from "../components/AtomMark";
+import headshot from "../assets/founder/derrick-headshot.jpg";
 
 export default function Founder() {
   return (
@@ -7,9 +7,11 @@ export default function Founder() {
         <p className="text-eyebrow">Founder</p>
 
         <div className="mt-8 flex flex-col items-start gap-8 sm:flex-row sm:items-center">
-          <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full border border-line-gold-bright bg-navy-raised">
-            <AtomMark size={40} idSuffix="Founder" />
-          </div>
+          <img
+            src={headshot}
+            alt="Derrick K. Gibbs-McGlaston"
+            className="h-32 w-32 shrink-0 rounded-full border border-line-gold-bright object-cover"
+          />
           <div>
             <h1 className="font-display text-4xl font-normal tracking-tight text-ivory sm:text-5xl">
               Derrick K. Gibbs-McGlaston
