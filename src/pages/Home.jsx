@@ -17,8 +17,8 @@ export default function Home() {
             </h1>
             <p className="mt-7 max-w-md text-lg leading-relaxed text-ivory-dim">
               Everything we make is built with real people in mind — an AI
-              journal, a financial companion, a patented jet engine. Different
-              problems. Same care.
+              journal, a financial companion, a patented jet engine, an AI
+              trading research program. Different problems. Same care.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Button as={Link} to="/company" variant="primary">

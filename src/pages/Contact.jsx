@@ -1,16 +1,38 @@
 import { useState } from "react";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight, Loader2 } from "lucide-react";
 import Button from "../components/Button";
 
 const inputClass =
   "w-full border border-line-gold bg-navy px-4 py-3 text-sm text-ivory placeholder:text-ivory-dim/60 focus:border-gold focus:outline-none";
 
-export default function Contact() {
-  const [sent, setSent] = useState(false);
+// Formspree endpoint — sign up free at formspree.io, create a form pointed
+// at admin@gmxquantum.com, and drop the real endpoint ID in here. Until
+// then this will fail with a clear error instead of silently pretending
+// to work.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 
-  function handleSubmit(e) {
+export default function Contact() {
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSent(true);
+    setStatus("sending");
+    const form = e.target;
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -52,7 +74,7 @@ export default function Contact() {
           </div>
 
           <div className="border border-line-gold bg-navy-raised p-8">
-            {sent ? (
+            {status === "sent" ? (
               <div className="flex h-full min-h-[280px] flex-col items-center justify-center text-center">
                 <p className="font-display text-xl text-ivory">Message received.</p>
                 <p className="mt-2 text-sm text-ivory-dim">
@@ -79,8 +101,22 @@ export default function Contact() {
                   className={inputClass}
                   name="message"
                 />
-                <Button as="button" type="submit" variant="primary">
-                  Send message <ArrowRight size={16} />
+                {status === "error" && (
+                  <p className="text-sm text-red-400">
+                    Something went wrong sending that — try again, or email
+                    admin@gmxquantum.com directly.
+                  </p>
+                )}
+                <Button as="button" type="submit" variant="primary" disabled={status === "sending"}>
+                  {status === "sending" ? (
+                    <>
+                      Sending <Loader2 size={16} className="animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      Send message <ArrowRight size={16} />
+                    </>
+                  )}
                 </Button>
               </form>
             )}
