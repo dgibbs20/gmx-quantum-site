@@ -9,7 +9,7 @@ const inputClass =
 // at admin@gmxquantum.com, and drop the real endpoint ID in here. Until
 // then this will fail with a clear error instead of silently pretending
 // to work.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkjwlbrv";
 
 export default function Contact() {
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
